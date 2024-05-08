@@ -11,7 +11,7 @@ import AlertToast
 
 struct ContentView: View {
     
-    let imageUrl = URL(string: "https://picsum.photos/200")
+    let imageUrl = URL(string: "https://picsum.photos/300")
     @State var loadedImage: UIImage?
     @State var isImageLoading = false
     @State var showToast = false
@@ -19,19 +19,13 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Image(uiImage: loadedImage ?? UIImage(systemName: "photo")!)
-                .skeleton(with: isImageLoading,
-                          shape: .rectangle)
-                .frame(width: 200, height: 200)
-            Button("이미지 로딩") {
-                isImageLoading = true
-                asyncImageLoad()
-            }
-            .foregroundStyle(.white)
-            .padding(8)
-            .background(.blue)
-            .clipShape(.buttonBorder)
-            
+            Text("Tap to load image")
+                .font(.title)
+                .bold()
+            imageView
+            Spacer()
+                .frame(height: 64)
+            loadButton
         }
         .padding()
         .toast(isPresenting: $showToast) {
@@ -57,6 +51,27 @@ struct ContentView: View {
         } catch {
             print(error)
         }
+    }
+    
+    var imageView: some View {
+        Image(uiImage: loadedImage ?? UIImage(systemName: "photo")!)
+            .skeleton(with: isImageLoading,
+                      shape: .rectangle)
+            .frame(width: 300, height: 300)
+            .clipShape(.buttonBorder)
+    }
+    
+    var loadButton: some View {
+        Button("Load") {
+            isImageLoading = true
+            asyncImageLoad()
+        }
+        .foregroundStyle(.white)
+        .padding(16)
+        .bold()
+        .font(.title2)
+        .background(.blue)
+        .clipShape(.buttonBorder)
     }
 }
 

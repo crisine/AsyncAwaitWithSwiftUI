@@ -81,4 +81,40 @@ final class AsyncImageLoader {
         }.resume()
         
     }
+    
+    func fetchImageAsyncAwait() async throws -> UIImage {
+        
+        let request = URLRequest(url: URL(string: "https://picsum.photos/300")!)
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let response = response as? HTTPURLResponse,
+              response.statusCode == 200 else {
+            throw ImageLoadError.invalidResponse
+        }
+        
+        guard let image = UIImage(data: data) else {
+            throw ImageLoadError.invalidImage
+        }
+        
+        return image
+    }
+    
+    func fetchImages(count: Int) async throws -> [UIImage] {
+        try await withThrowingTaskGroup(of: UIImage.self) { group in
+            for _ in 0..<count {
+                group.addTask {
+                    try await AsyncImageLoader.shared.fetchImageAsyncAwait()
+                }
+            }
+            
+            var images: [UIImage] = []
+            
+            for try await image in group {
+                images.append(image)
+            }
+            
+            return images
+        }
+    }
 }
