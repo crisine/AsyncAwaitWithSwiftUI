@@ -14,6 +14,9 @@
 		FA5ED15E2BEB7FE000C9986A /* AsyncAwaitWithSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5ED15D2BEB7FE000C9986A /* AsyncAwaitWithSwiftUITests.swift */; };
 		FA5ED1682BEB7FE000C9986A /* AsyncAwaitWithSwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5ED1672BEB7FE000C9986A /* AsyncAwaitWithSwiftUIUITests.swift */; };
 		FA5ED16A2BEB7FE000C9986A /* AsyncAwaitWithSwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5ED1692BEB7FE000C9986A /* AsyncAwaitWithSwiftUIUITestsLaunchTests.swift */; };
+		FA5ED1772BEB9F3D00C9986A /* AsyncImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5ED1762BEB9F3D00C9986A /* AsyncImageLoader.swift */; };
+		FA5ED17A2BEBB4EE00C9986A /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = FA5ED1792BEBB4EE00C9986A /* SkeletonUI */; };
+		FA5ED17D2BEBBF5900C9986A /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = FA5ED17C2BEBBF5900C9986A /* AlertToast */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,7 @@
 		FA5ED1632BEB7FE000C9986A /* AsyncAwaitWithSwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsyncAwaitWithSwiftUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA5ED1672BEB7FE000C9986A /* AsyncAwaitWithSwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncAwaitWithSwiftUIUITests.swift; sourceTree = "<group>"; };
 		FA5ED1692BEB7FE000C9986A /* AsyncAwaitWithSwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncAwaitWithSwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FA5ED1762BEB9F3D00C9986A /* AsyncImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA5ED17A2BEBB4EE00C9986A /* SkeletonUI in Frameworks */,
+				FA5ED17D2BEBBF5900C9986A /* AlertToast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +104,7 @@
 				FA5ED14E2BEB7FDE00C9986A /* ContentView.swift */,
 				FA5ED1502BEB7FDF00C9986A /* Assets.xcassets */,
 				FA5ED1522BEB7FDF00C9986A /* Preview Content */,
+				FA5ED1762BEB9F3D00C9986A /* AsyncImageLoader.swift */,
 			);
 			path = AsyncAwaitWithSwiftUI;
 			sourceTree = "<group>";
@@ -143,6 +150,10 @@
 			dependencies = (
 			);
 			name = AsyncAwaitWithSwiftUI;
+			packageProductDependencies = (
+				FA5ED1792BEBB4EE00C9986A /* SkeletonUI */,
+				FA5ED17C2BEBBF5900C9986A /* AlertToast */,
+			);
 			productName = AsyncAwaitWithSwiftUI;
 			productReference = FA5ED1492BEB7FDE00C9986A /* AsyncAwaitWithSwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +226,10 @@
 				Base,
 			);
 			mainGroup = FA5ED1402BEB7FDE00C9986A;
+			packageReferences = (
+				FA5ED1782BEBB4EE00C9986A /* XCRemoteSwiftPackageReference "SkeletonUI" */,
+				FA5ED17B2BEBBF5900C9986A /* XCRemoteSwiftPackageReference "AlertToast" */,
+			);
 			productRefGroup = FA5ED14A2BEB7FDE00C9986A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA5ED1772BEB9F3D00C9986A /* AsyncImageLoader.swift in Sources */,
 				FA5ED14F2BEB7FDE00C9986A /* ContentView.swift in Sources */,
 				FA5ED14D2BEB7FDE00C9986A /* AsyncAwaitWithSwiftUIApp.swift in Sources */,
 			);
@@ -588,6 +604,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FA5ED1782BEBB4EE00C9986A /* XCRemoteSwiftPackageReference "SkeletonUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CSolanaM/SkeletonUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.1;
+			};
+		};
+		FA5ED17B2BEBBF5900C9986A /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FA5ED1792BEBB4EE00C9986A /* SkeletonUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA5ED1782BEBB4EE00C9986A /* XCRemoteSwiftPackageReference "SkeletonUI" */;
+			productName = SkeletonUI;
+		};
+		FA5ED17C2BEBBF5900C9986A /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA5ED17B2BEBBF5900C9986A /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FA5ED1412BEB7FDE00C9986A /* Project object */;
 }
